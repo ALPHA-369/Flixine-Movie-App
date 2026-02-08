@@ -50,7 +50,7 @@
 
 @layer components {
   .pattern {
-    @apply bg-hero-pattern w-full h-screen bg-center bg-cover absolute z-0;
+    @apply bg-hero-pattern w-full h-screen bg-center bg-cover bg-no-repeat absolute z-0;
     filter: blur(3px);
   }
 
@@ -84,11 +84,9 @@
     & div {
       @apply relative flex items-center;
     }
-
-    & img {
-      @apply absolute left-2 h-5 w-5;
+    & .search-icon {
+      @apply text-white hover:text-light-200 cursor-pointer;
     }
-
     & input {
       @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-base text-gray-200 placeholder-light-200 outline-hidden;
     }
