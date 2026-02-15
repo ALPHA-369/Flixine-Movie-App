@@ -1,6 +1,7 @@
 import "./App.css";
 import Search from "./components/search";
 import { useState, useEffect } from "react";
+import Spinner from "./components/spinner";
 
 const API_BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -63,10 +64,10 @@ const App = () => {
         </header>
 
         <div className="all-movies">
-          <h2>All Movies</h2>
+          <h2 className="mt-[45px]">All Movies</h2>
 
           {isLoading ? (
-            <p className="text-white">Loading Content...</p>
+            Spinner({ loading: isLoading })
           ) : errorMsg ? (
             <p className="text-red-500">{errorMsg}</p>
           ) : (
