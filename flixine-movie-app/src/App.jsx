@@ -2,6 +2,7 @@ import "./App.css";
 import Search from "./components/search";
 import { useState, useEffect } from "react";
 import Spinner from "./components/spinner";
+import MovieCard from "./components/MovieCard";
 
 const API_BASE_URL = "https://api.themoviedb.org/3/";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -23,7 +24,7 @@ const App = () => {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      const endpoint = `${API_BASE_URL}trending/all/week?sort_by=popularity.desc`;
+      const endpoint = `${API_BASE_URL}discover/movie?include_adult=false&include_video=true&&page=1&sort_by=popularity.desc`;
 
       const response = await fetch(endpoint, API_OPTIONS);
 
@@ -38,6 +39,7 @@ const App = () => {
         return;
       }
       setMovieList(data.results || []);
+      console.log(data.results);
     } catch (error) {
       console.error(error);
       setErrorMsg("Failed to fetch movies. Please try again later.");
@@ -73,9 +75,7 @@ const App = () => {
           ) : (
             <ul>
               {movieList.map((movie) => (
-                <p key={movie.id} className="text-white">
-                  {movie.title}
-                </p>
+                <MovieCard key={movie.id} movie={movie} />
               ))}
             </ul>
           )}
