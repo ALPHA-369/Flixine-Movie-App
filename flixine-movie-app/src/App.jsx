@@ -24,7 +24,7 @@ const App = () => {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      const endpoint = `${API_BASE_URL}discover/movie?include_adult=false&include_video=true&&page=1&sort_by=popularity.desc`;
+      const endpoint = `${API_BASE_URL}discover/movie?include_adult=true&include_video=true&&page=1&sort_by=popularity.desc`;
 
       const response = await fetch(endpoint, API_OPTIONS);
 

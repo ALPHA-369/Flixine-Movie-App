@@ -20,7 +20,15 @@ const MovieCard = ({
         }
         alt={`poster for ${name || title}`}
       />
-      <p className="text-white">{!name ? title : name}</p>
+      <div className="mt-4">
+        <h3>{!name ? title : name}</h3>
+
+        <div className="content">
+          <div className="rating">
+            <span className="star">⭐</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
