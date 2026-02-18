@@ -20,11 +20,21 @@ const App = () => {
   const [movieList, setMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchMovies = async () => {
+  /*************  ✨ Windsurf Command ⭐  *************/
+  /**
+   * Fetches movies from The Movie Database API.
+   * Sets isLoading to true while fetching, and false afterwards.
+   * Sets errorMsg to an empty string while fetching, and to an error message if the fetch fails.
+   * Sets movieList to an empty array while fetching, and to the fetched movies if the fetch succeeds.
+   */
+  /*******  3c33ea14-f182-4d70-9435-2d19662a980a  *******/
+  const fetchMovies = async (query) => {
     setIsLoading(true);
     setErrorMsg("");
     try {
-      const endpoint = `${API_BASE_URL}discover/movie?include_adult=true&include_video=true&&page=1&sort_by=popularity.desc`;
+      const endpoint = query
+        ? `${API_BASE_URL}search/movie?query=${encodeURI(query)}&include_adult=true&include_video=true&&page=1&sort_by=popularity.desc`
+        : `${API_BASE_URL}discover/movie?include_adult=true&include_video=true&&page=1&sort_by=popularity.desc`;
 
       const response = await fetch(endpoint, API_OPTIONS);
 
@@ -49,8 +59,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    fetchMovies(searchTerm);
+  }, [searchTerm]);
   return (
     <main>
       <div className="pattern" />

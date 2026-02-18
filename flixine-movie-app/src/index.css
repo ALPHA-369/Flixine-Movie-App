@@ -119,8 +119,8 @@
       @apply flex flex-row items-center gap-1;
     }
 
-    & .rating img {
-      @apply size-4 object-contain;
+    & .rating .rating-star {
+      @apply text-amber-300;
     }
 
     & .rating p {
