@@ -50,12 +50,12 @@
 
 @layer components {
   .pattern {
-    @apply bg-hero-pattern w-full h-screen bg-center bg-cover bg-no-repeat absolute z-0;
+    @apply bg-hero-pattern w-full h-[91vh] bg-center bg-cover bg-no-repeat absolute z-0;
     filter: blur(3px);
   }
 
   .wrapper {
-    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
+    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-1;
   }
 
   .trending {
@@ -96,8 +96,11 @@
     @apply space-y-9;
 
     & ul {
-      @apply grid grid-cols-1 gap-5 max-sm:grid-cols-2 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+      @apply grid grid-cols-1 gap-5 max-sm:grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-6;
     }
+  }
+  & .loader {
+    @apply mt-20 flex flex-row justify-center;
   }
 
   .movie-card {

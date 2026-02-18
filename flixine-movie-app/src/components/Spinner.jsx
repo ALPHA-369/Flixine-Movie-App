@@ -1,4 +1,4 @@
-import { React, useState, CSSProperties } from "react";
+import { React, CSSProperties } from "react";
 import { DotLoader } from "react-spinners";
 const Spinner = ({ loading }) => {
   return (
@@ -6,7 +6,7 @@ const Spinner = ({ loading }) => {
       color="#ffffff"
       cssOverride={{}}
       loading={loading}
-      size={100}
+      size={70}
       speedMultiplier={1}
     />
   );
