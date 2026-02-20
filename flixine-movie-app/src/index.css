@@ -59,10 +59,10 @@
   }
 
   .trending {
-    @apply mt-20;
+    @apply mt-2;
 
     & ul {
-      @apply flex flex-row overflow-y-auto gap-5 -mt-10 w-full hide-scrollbar;
+      @apply flex flex-row overflow-y-auto gap-5 -mt-10 w-full hide-scrollbar scroll-smooth;
     }
 
     & ul li {
@@ -74,7 +74,7 @@
     }
 
     & ul li img {
-      @apply w-[127px] h-[163px] rounded-lg object-cover -ml-3.5;
+      @apply w-[127px] h-[163px] rounded-lg object-cover -ml-3.5 border-[var(--color-light-100)] border-3;
     }
   }
 
@@ -92,7 +92,8 @@
     }
   }
 
-  .all-movies {
+  .all-movies,
+  .search-movies {
     @apply space-y-9;
 
     & ul {
@@ -149,7 +150,8 @@
 }
 
 @utility fancy-text {
-  -webkit-text-stroke: 5px rgba(206, 206, 251, 0.5);
+  -webkit-text-stroke: 5px rgba(222, 102, 128, 0.8);
+  text-shadow: rgba(222, 151, 164, 0.95) 0px 0px 20px;
   font-size: 190px;
   font-family: "Bebas Neue", sans-serif;
 }
