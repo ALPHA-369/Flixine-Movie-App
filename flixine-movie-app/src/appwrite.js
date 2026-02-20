@@ -33,3 +33,16 @@ export const updateSearch = async (searchTerm, movie) => {
     console.error("Error updating search metric:", error);
   }
 };
+
+export const getTrendingMovies = async () => {
+  try {
+    const result = await tablesDB.listRows(DATABASE_ID, TABLE_ID, [
+      Query.orderDesc("count"),
+      Query.limit(5),
+    ]);
+
+    return result.rows;
+  } catch (error) {
+    console.error(error);
+  }
+};
